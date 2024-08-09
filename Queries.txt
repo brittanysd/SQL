@@ -1,0 +1,40 @@
+/* Query 1 */
+SELECT
+  c.company
+ ,AVG(il.unitprice * il.quantity) total_sales
+FROM invoice i
+JOIN customer c
+  ON c.customerid = i.customerid
+JOIN invoiceline il
+  ON i.invoiceid = il.invoicelineid
+GROUP BY 1;
+
+/* Query 2 */
+SELECT
+  g.name
+ ,MAX(t.unitprice) unit_price
+FROM genre g
+JOIN track t
+  ON g.genreid = t.genreid
+GROUP BY 1;
+
+/* Query 3 */
+SELECT
+  g.name genre_name
+ ,COUNT(*) genre_total
+FROM genre g
+JOIN track t
+  ON g.genreid = t.genreid
+GROUP BY genre_name
+ORDER BY 2 DESC;
+
+/* Query 4 */
+SELECT
+  e.firstname
+ ,e.lastname
+ ,COUNT(c.supportrepid) support_rep
+FROM customer c
+JOIN employee e
+  ON e.employeeid = c.supportrepid
+GROUP BY 2
+        ,1;
