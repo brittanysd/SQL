@@ -1,4 +1,3 @@
-/* Query 1 */
 SELECT
   c.company
  ,AVG(il.unitprice * il.quantity) total_sales
@@ -9,7 +8,6 @@ JOIN invoiceline il
   ON i.invoiceid = il.invoicelineid
 GROUP BY 1;
 
-/* Query 2 */
 SELECT
   g.name
  ,MAX(t.unitprice) unit_price
@@ -18,7 +16,6 @@ JOIN track t
   ON g.genreid = t.genreid
 GROUP BY 1;
 
-/* Query 3 */
 SELECT
   g.name genre_name
  ,COUNT(*) genre_total
@@ -28,7 +25,6 @@ JOIN track t
 GROUP BY genre_name
 ORDER BY 2 DESC;
 
-/* Query 4 */
 SELECT
   e.firstname
  ,e.lastname
